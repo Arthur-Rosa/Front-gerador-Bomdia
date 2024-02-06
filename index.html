@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>API de Imagens de Bom Dia</title>
+  </head>
+  <body>
+    <script>
+      function updateUrlDisplay() {
+        var category = document.getElementById("imageCategory").value;
+        document.getElementById("urlDisplay").textContent =
+          "URL da Imagem: https://api.bomdia.com/imagem?categoria=" + category;
+      }
+
+      function toggleTheme() {
+        var body = document.body;
+        var themeSwitcher = document.querySelector(".theme-switcher");
+        var isDarkMode = body.classList.toggle("dark-mode");
+        if (isDarkMode) {
+          themeSwitcher.textContent = "Mudar para Modo Claro";
+          applyDarkMode();
+        } else {
+          themeSwitcher.textContent = "Mudar para Modo Escuro";
+          applyLightMode();
+        }
+      }
+
+      function applyDarkMode() {
+        document.documentElement.style.setProperty(
+          "--background-color",
+          "#333"
+        );
+        document.documentElement.style.setProperty("--text-color", "#fff");
+        document.documentElement.style.setProperty("--link-color", "#ffa500");
+        document.documentElement.style.setProperty(
+          "--link-hover-color",
+          "#ffca2c"
+        );
+        updateLinkColors("#ffa500");
+      }
+
+      function applyLightMode() {
+        document.documentElement.style.setProperty(
+          "--background-color",
+          "#f0f0f0"
+        );
+        document.documentElement.style.setProperty("--text-color", "#333");
+        document.documentElement.style.setProperty("--link-color", "#0056b3");
+        document.documentElement.style.setProperty(
+          "--link-hover-color",
+          "#003875"
+        );
+        updateLinkColors("#0056b3");
+      }
+
+      function updateLinkColors(color) {
+        document
+          .querySelectorAll(".navbar a, .social-icons a")
+          .forEach((element) => {
+            element.style.color = color;
+          });
+      }
+
+      function toggleNav() {
+        var navItems = document.querySelector(".navbar ul");
+        navItems.classList.toggle("nav-active");
+      }
+
+      applyDarkMode();
+    </script>
+  </body>
+</html>
