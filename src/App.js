@@ -46,9 +46,9 @@ function App() {
         <div className="logo-div">
           <a href="/">
             {theme === "light" ? (
-              <img className="img-logo" src="./logo.png" />
+              <img id="inicio" className="img-logo" src="./logo.png" />
             ) : (
-              <img className="img-logo" src="./logo-white.png" />
+              <img id="inicio" className="img-logo" src="./logo-white.png" />
             )}
           </a>
         </div>
@@ -177,7 +177,7 @@ function App() {
         <p>
           Estamos verdadeiramente gratos por seu interesse e tempo dedicado a
           explorar nosso projeto.
-          <br />
+          <br /><br />
           Sua curiosidade e entusiasmo são o que impulsionam a inovação e o{" "}
           <span>crescimento</span> contínuos da comunidade{" "}
           <span>open source</span>.
